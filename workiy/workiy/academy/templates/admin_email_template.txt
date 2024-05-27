@@ -1,0 +1,22 @@
+{% if name %}
+Name: {{ name }}
+{% endif %}
+{% if email %}
+Email: {{ email }}
+{% endif %}
+{% if contact %}
+Contact: {{ contact }}
+{% endif %}
+{% if course %}
+Subject: {{ course }}
+{% endif %}
+{% if message %}
+Message:
+{{ message }}
+{% endif %}
+
+
+
+
+
+

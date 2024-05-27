@@ -1,0 +1,159 @@
+{% load static %}
+{% include 'header.html' %}
+  <main class="main">
+
+    <!-- Hero Section -->
+    <section id="hero" class="hero section">
+
+      <img src="{% static 'assets/img/hero-bg.jpg' %}" alt="" data-aos="fade-in">
+
+      <div class="container">
+        <h2 data-aos="fade-up" data-aos-delay="100" class="">Learning Today,<br>Leading Tomorrow</h2>
+        <p data-aos="fade-up" data-aos-delay="200">Developing expertise and leveling up your career are two essential aspects of professional growth.</p>
+        <div class="d-flex mt-4" data-aos="fade-up" data-aos-delay="300">
+          <a href="/courses" class="btn-get-started">Get Started</a>
+        </div>
+      </div>
+
+    </section><!-- /Hero Section -->
+
+    <!-- About Section -->
+    <section id="about" class="about section">
+
+      <div class="container">
+
+        <div class="row gy-4">
+
+          <div class="col-lg-6 order-1 order-lg-2" data-aos="fade-up" data-aos-delay="100">
+            <img src="{% static 'assets/img/about.jpg' %}" class="img-fluid" alt="">
+          </div>
+
+          <div class="col-lg-6 order-2 order-lg-1 content" data-aos="fade-up" data-aos-delay="200">
+            <h3>Who we are?</h3>
+            <p class="fst-italic">
+              Workiy Academy is a leading software training institute that offers various software courses aligned to the latest industry trends. Our primary aim is to provide quality education and training to students, professionals, and beginners who want to enhance their knowledge and skills in the IT industry.
+            </p>
+            <ul>
+              <li><i class="bi bi-check-circle"></i> <span>We believe that the world is constantly evolving, and so are the industries.</span></li>
+              <li><i class="bi bi-check-circle"></i> <span>Therefore, it's crucial to be equipped with the latest knowledge and skills to stay relevant in the market.</span></li>
+              <li><i class="bi bi-check-circle"></i> <span>To ensure this, we have a team of highly experienced and skilled trainers who have vast industry experience and knowledge.</span></li>
+            </ul>
+            <a href="about" class="read-more"><span>Read More</span><i class="bi bi-arrow-right"></i></a>
+          </div>
+
+        </div>
+
+      </div>
+
+    </section><!-- /About Section -->
+
+
+
+    <!-- Features Section -->
+    <section id="features" class="features section">
+  <!-- Section Title -->
+      <div class="container section-title" data-aos="fade-up">
+        <h2>Our</h2>
+        <p class="">Leading Partners</p>
+      </div><!-- End Section Title -->
+      <div class="container">
+
+        <div class="row gy-4">
+{% for partner in partners %}
+          <div class="col-lg-3 col-md-4" data-aos="fade-up" data-aos-delay="100">
+            <div class="features-item">
+              <img src="{{ media_url }}{{ partner.partnerimage }}" class="img-fluid">
+<!--              <h3><a href="" class="stretched-link">{{ partner.partnername}}</a></h3>-->
+            </div>
+          </div><!-- End Feature Item -->
+
+{% endfor %}
+        </div>
+
+      </div>
+
+    </section><!-- /Features Section -->
+
+    <!-- Courses Section -->
+    <section id="courses" class="courses section">
+
+      <!-- Section Title -->
+      <div class="container section-title" data-aos="fade-up">
+        <h2>Courses</h2>
+        <p class="">Popular Courses</p>
+      </div><!-- End Section Title -->
+
+      <div class="container">
+
+        <div class="row">
+  {% for c in courses %}
+          <div class="col-lg-4 col-md-6 d-flex align-items-stretch" data-aos="zoom-in" data-aos-delay="100">
+            <div class="course-item">
+              <img src="{{ media_url }}{{ c.image_file }}" class="img-fluid" alt="{{ c.coursename }}">
+              <div class="course-content">
+                <div class="d-flex justify-content-between align-items-center mb-3">
+                  <p class="category">{{ c.coursename }}</p>
+<!--                  <p class="price">{{ c.courserate }}</p>-->
+                </div>
+
+                <h3><a href="courses/{{ c.id }}">{{ c.coursename }}</a></h3>
+                <p class="description">{{ c.coursedesc }}</p>
+
+              </div>
+            </div>
+          </div> <!-- End Course Item-->
+{% endfor %}
+
+
+
+
+        </div>
+
+      </div>
+
+    </section><!-- /Courses Section -->
+
+    <!-- Trainers Index Section -->
+    <section id="trainers-index" class="section trainers-index">
+   <div class="container section-title" data-aos="fade-up">
+
+        <p class="">Testimonials</p>
+      </div><!-- End Section Title -->
+      <div class="container">
+
+        <div class="row">
+      {% for test in testimonial %}
+          <div class="col-lg-4 col-md-6 d-flex" data-aos="fade-up" data-aos-delay="100">
+            <div class="member">
+              <img src="{{ media_url }}{{ test.photo }}" class="img-fluid" alt="{{ test.name }}">
+              <div class="member-content">
+                <h4>{{ test.name }}</h4>
+                <span>{{ test.course_name }}</span>
+                <span>{{ test.completion_year }}</span>
+                <p>
+                  {{ test.statement }}
+                </p>
+                <div class="social">
+                  <a href=""><i class="bi bi-twitter"></i></a>
+                  <a href=""><i class="bi bi-facebook"></i></a>
+                  <a href=""><i class="bi bi-instagram"></i></a>
+                  <a href=""><i class="bi bi-linkedin"></i></a>
+                </div>
+                   <span class = "fa fa-star checked"></span>
+              </div>
+            </div>
+          </div><!-- End Team Member -->
+
+         {% endfor %}
+
+        </div>
+
+      </div>
+
+    </section><!-- /Trainers Index Section -->
+
+  </main>
+
+
+
+{% include 'footer.html' %}

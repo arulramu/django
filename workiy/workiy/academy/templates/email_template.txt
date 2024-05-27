@@ -1,0 +1,11 @@
+Hi {{ name }},
+{% if highlightmsg %}
+{{ highlightmsg }}
+{% endif %}
+{% if message %}
+{{ message }}
+{% endif %}
+
+Thanks,
+Workiy Academy
+
